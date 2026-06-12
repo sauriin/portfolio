@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTerminalStore } from "../../store/terminalStore";
 import { useUiStore } from "../../store/uiStore";
+import { useChronicleStore } from "../../store/chronicleStore";
 
 export function MacOSDesktop() {
     const [activeVideo, setActiveVideo] = useState(0);
@@ -57,7 +58,16 @@ export function MacOSDesktop() {
             </div>
 
             {/* Desktop Icons */}
-            <div className="absolute inset-0 pt-20 p-6 grid grid-cols-1 w-fit gap-6 z-10">
+            <div className="absolute inset-0 pt-20 p-6 grid grid-cols-1 w-fit gap-6 z-20">
+                <DesktopIcon
+                    label="Chronicles"
+                    icon={<div className="w-16 h-16 bg-blue-500/80 rounded-xl border border-white/20 shadow-xl flex items-center justify-center text-white text-2xl">📁</div>}
+                    onClick={() => {
+                        // We can't use a simple store call here easily without a window, 
+                        // so we'll trigger the first chronicle as a default 'folder open' action
+                        useChronicleStore.getState().setActiveChronicle('blinkit');
+                    }}
+                />
                 <DesktopIcon
                     label="Terminal"
                     icon={<div className="w-16 h-16 bg-zinc-900 rounded-2xl border border-white/20 flex items-center justify-center text-green-400 font-mono text-lg shadow-2xl"> {'>_'} </div>}
@@ -108,8 +118,13 @@ export function MacOSDesktop() {
 function DesktopIcon({ label, icon, onClick }: { label: string, icon: React.ReactNode, onClick: () => void }) {
     return (
         <button
-            onClick={onClick}
-            className="flex flex-col items-center justify-center w-20 h-20 rounded-lg hover:bg-white/10 transition-all duration-200 group"
+            type="button"
+            onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onClick();
+            }}
+            className="flex flex-col items-center justify-center w-20 h-20 rounded-lg hover:bg-white/10 transition-all duration-200 group cursor-pointer"
         >
             <div className="mb-1 group-hover:scale-110 transition-transform duration-200">{icon}</div>
             <span className="text-white text-[11px] text-center leading-tight px-1 drop-shadow-md font-medium">{label}</span>

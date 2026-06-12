@@ -5,10 +5,12 @@ import { BlinkitPage } from "./pages/BlinkitPage";
 import { FlowyPage } from "./pages/FlowyPage";
 
 export function ChronicleWindow() {
-    const activeChronicleId = useChronicleStore((state) => state.activeChronicle);
-    const closeChronicle = useChronicleStore((state) => state.setActiveChronicle(null));
+    const { activeChronicle: activeChronicleId, setActiveChronicle } = useChronicleStore();
+    const closeChronicle = () => setActiveChronicle(null);
 
     const activeChronicle = chronicles.find(c => c.id === activeChronicleId);
+
+    if (!activeChronicle) return null;
 
     if (!activeChronicle) return null;
 

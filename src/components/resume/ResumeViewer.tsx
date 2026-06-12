@@ -29,16 +29,20 @@ export function ResumeViewer() {
   if (!isResumeOpen) return null;
 
   return (
-    <div ref={ref} className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-10 bg-black/40 backdrop-blur-sm">
+    <div
+      ref={ref}
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-10 bg-black/40 backdrop-blur-sm"
+      style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
       <div className="relative w-full max-w-5xl max-h-[90vh] overflow-hidden rounded-xl bg-white shadow-2xl flex flex-col animate-in fade-in zoom-in duration-300">
         {/* macOS Window Title Bar */}
-        <div className="flex items-center justify-between bg-slate-100 px-4 py-3 border-b border-slate-200 select-none">
+        <div className="flex items-center justify-between bg-slate-100 px-3 py-2.5 sm:px-4 sm:py-3 border-b border-slate-200 select-none">
           <div className="flex gap-2">
             <button onClick={closeResume} className="w-3 h-3 rounded-full bg-[#FF5F57] hover:bg-[#ff4b43] transition-colors" title="Close" />
             <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
             <div className="w-3 h-3 rounded-full bg-[#28C840]" />
           </div>
-          <div className="absolute left-1/2 -translate-x-1/2 text-slate-500 text-xs font-medium">
+          <div className="absolute left-1/2 -translate-x-1/2 text-slate-500 text-[11px] sm:text-xs font-medium">
             Resume.pdf
           </div>
           <div className="flex items-center gap-2">
@@ -56,10 +60,10 @@ export function ResumeViewer() {
         </div>
 
         {/* Document Content */}
-        <div className="flex-1 overflow-y-auto bg-slate-100 p-8 flex justify-center">
+        <div className="flex-1 overflow-y-auto bg-slate-100 p-3 sm:p-5 md:p-8 flex justify-center">
           <article
             data-resume-page
-            className="mx-auto w-full max-w-[800px] bg-white shadow-sm p-12 text-slate-900 min-h-[1000px]"
+            className="mx-auto w-full max-w-[800px] bg-white shadow-sm p-5 sm:p-8 md:p-12 text-slate-900 min-h-[1000px]"
           >
             <div className="flex justify-between items-start mb-8">
               <div>

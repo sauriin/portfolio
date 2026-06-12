@@ -37,7 +37,8 @@ export function TerminalDock() {
         ref={buttonRef}
         type="button"
         onClick={toggleTerminal}
-        className="fixed bottom-5 right-5 z-50 rounded-full border border-white/15 bg-[#07111F]/90 px-5 py-4 font-mono text-xs uppercase tracking-[0.2em] text-white shadow-panel backdrop-blur-xl transition hover:border-chronicle-primary hover:text-chronicle-primary md:bottom-8 md:right-8"
+        className="fixed bottom-4 right-4 z-50 rounded-full border border-white/15 bg-[#07111F]/90 px-3.5 py-3 sm:px-5 sm:py-4 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] text-white shadow-panel backdrop-blur-xl transition hover:border-chronicle-primary hover:text-chronicle-primary active:scale-95 md:bottom-8 md:right-8 touch-manipulation"
+        style={{ marginBottom: "env(safe-area-inset-bottom)", marginRight: "env(safe-area-inset-right)" }}
       >
         chronicle-os$
       </button>

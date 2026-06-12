@@ -16,8 +16,8 @@ export function ChronicleWindow() {
 
     return (
         <div
-            className="fixed inset-0 flex items-center justify-center p-4 md:p-10 bg-black/60 backdrop-blur-md"
-            style={{ zIndex: 9999 }}
+            className="fixed inset-0 flex items-center justify-center p-2 sm:p-4 md:p-10 bg-black/60 backdrop-blur-md"
+            style={{ zIndex: 9999, paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
         >
             <div className="relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-xl bg-white shadow-2xl flex flex-col opacity-100 scale-100">
                 {/* macOS Window Title Bar */}

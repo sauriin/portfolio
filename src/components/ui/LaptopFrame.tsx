@@ -3,7 +3,7 @@ import { TerminalWindow } from "../terminal/TerminalWindow";
 
 export function LaptopFrame({ children }: { children: React.ReactNode }) {
     return (
-        <div className="relative mx-auto w-full max-w-6xl aspect-video group">
+        <div className="relative mx-auto hidden w-full max-w-6xl aspect-video group md:block">
             {/* Laptop Lid/Screen */}
             <div className="relative h-full w-full rounded-t-3xl border-[12px] border-[#2a2a2a] bg-[#1a1a1a] shadow-2xl overflow-hidden transition-all duration-500 group-hover:border-[#333]">
                 {/* Bezel/Screen Area */}

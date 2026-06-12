@@ -19,11 +19,27 @@ html {
   scroll-behavior: smooth;
 }
 
+@supports (height: 100dvh) {
+
+  html,
+  body {
+    min-height: 100dvh;
+  }
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   background: #050816;
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
 }
 
 button,

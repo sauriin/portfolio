@@ -12,7 +12,11 @@ export function App() {
   const isTerminalOpen = useTerminalStore((state) => state.isOpen);
 
   return (
-    <div ref={rootRef} className="h-screen w-screen overflow-hidden bg-[#0a0a0a] text-white relative">
+    <div
+      ref={rootRef}
+      className="relative min-h-[100dvh] w-full bg-[#0a0a0a] text-white"
+      style={{ paddingTop: "env(safe-area-inset-top)", paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
       <ChronicleWindow />
       <ResumeViewer />
       <MacOSDesktop />

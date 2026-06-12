@@ -67,25 +67,28 @@ export function TerminalWindow() {
   }
 
   return (
-    <div className="fixed inset-x-3 bottom-20 z-50 mx-auto max-w-6xl md:inset-x-8 md:bottom-24">
-      <div ref={windowRef} className="glass-panel terminal-scanline relative overflow-hidden rounded-[1.5rem] h-[75vh] flex flex-col mt-4">
-        <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+    <div
+      className="fixed inset-x-2 bottom-16 z-50 mx-auto max-w-6xl sm:inset-x-4 sm:bottom-20 md:inset-x-8 md:bottom-24"
+      style={{ marginBottom: "env(safe-area-inset-bottom)" }}
+    >
+      <div ref={windowRef} className="glass-panel terminal-scanline relative overflow-hidden rounded-xl sm:rounded-[1.5rem] h-[70vh] sm:h-[75vh] max-h-[80vh] flex flex-col mt-4">
+        <div className="flex items-center justify-between border-b border-white/10 px-3 py-3 sm:px-5 sm:py-4">
           <div className="flex items-center gap-2" aria-hidden="true">
-            <span className="h-3 w-3 rounded-full bg-[#FF5F57]" />
-            <span className="h-3 w-3 rounded-full bg-[#FFBD2E]" />
-            <span className="h-3 w-3 rounded-full bg-[#28C840]" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#FF5F57]" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#FFBD2E]" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#28C840]" />
           </div>
-          <p className="font-mono text-xs uppercase tracking-[0.26em] text-chronicle-muted">Chronicle Terminal</p>
+          <p className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.26em] text-chronicle-muted truncate">Chronicle Terminal</p>
           <button
             type="button"
             onClick={closeTerminal}
-            className="font-mono text-xs uppercase tracking-[0.2em] text-white/70 transition hover:text-chronicle-primary"
+            className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] text-white/70 transition hover:text-chronicle-primary shrink-0"
           >
             Close
           </button>
         </div>
 
-        <div ref={outputRef} className="max-h-[80vh] overflow-y-auto px-5 py-5 font-mono text-sm leading-7 md:px-7">
+        <div ref={outputRef} className="max-h-[80vh] overflow-y-auto px-3 py-4 font-mono text-xs leading-6 sm:px-5 sm:py-5 sm:text-sm sm:leading-7 md:px-7">
           {lines.map((line) => {
             const className =
               line.variant === "input"
@@ -118,7 +121,7 @@ export function TerminalWindow() {
           })}
         </div>
 
-        <form onSubmit={onSubmit} className="flex items-center gap-3 border-t border-white/10 px-5 py-4 font-mono md:px-7">
+        <form onSubmit={onSubmit} className="flex items-center gap-2 sm:gap-3 border-t border-white/10 px-3 py-3 font-mono sm:px-5 sm:py-4 md:px-7">
           <label htmlFor="chronicle-command" className="shrink-0 text-chronicle-primary">
             chronicle-os$
           </label>

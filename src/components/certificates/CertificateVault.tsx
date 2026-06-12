@@ -3,7 +3,7 @@ import { PanelHeader } from "../ui/PanelHeader";
 
 export function CertificateVault() {
   return (
-    <section className="relative z-10 px-6 pb-28 md:px-10">
+    <section className="relative z-10 px-4 pb-20 sm:px-6 sm:pb-28 md:px-10">
       <div className="mx-auto max-w-7xl">
         <PanelHeader
           eyebrow="Credentials"
@@ -11,9 +11,9 @@ export function CertificateVault() {
           description="Verified learning records connected directly to the original certificate documents."
         />
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {certificates.map((certificate) => (
-            <article key={`${certificate.title}-${certificate.issuer}`} className="glass-panel rounded-3xl p-6">
+            <article key={`${certificate.title}-${certificate.issuer}`} className="glass-panel rounded-2xl p-5 sm:rounded-3xl sm:p-6">
               <p className="mb-4 font-mono text-xs uppercase tracking-[0.24em] text-chronicle-primary">
                 {certificate.issuer}
               </p>

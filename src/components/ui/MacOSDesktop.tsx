@@ -20,7 +20,7 @@ export function MacOSDesktop() {
     }, [activeVideo]);
 
     return (
-        <div className="absolute inset-0 h-full w-full overflow-hidden transition-all duration-1000 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900">
+        <div className="relative h-[100dvh] min-h-[640px] w-full overflow-hidden transition-all duration-1000 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900">
             {/* Seamless Live Video Background */}
             {[0, 1].map((idx) => (
                 <video
@@ -39,38 +39,36 @@ export function MacOSDesktop() {
 
             {/* Overlay to ensure readability and maintain the 'glass' feel */}
             <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none" />
-            <div className="absolute top-0 left-0 right-0  h-9 bg-white/10 backdrop-blur-xl flex items-center justify-between px-4 text-white text-[12px] font-medium z-50 border-b border-white/10">
-                <div className="flex items-center gap-4">
-                    <span className="text-base"></span>
-                    <span className="font-bold">Chronicle OS</span>
+            <div className="absolute top-0 left-0 right-0 h-9 bg-white/10 backdrop-blur-xl flex items-center justify-between px-3 sm:px-4 text-white text-[11px] sm:text-[12px] font-medium z-50 border-b border-white/10">
+                <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                    <span className="text-base shrink-0"></span>
+                    <span className="font-bold truncate">Chronicle OS</span>
                     <span className="hidden md:block opacity-80 hover:opacity-100 cursor-default transition-opacity">File</span>
                     <span className="hidden md:block opacity-80 hover:opacity-100 cursor-default transition-opacity">Edit</span>
                     <span className="hidden md:block opacity-80 hover:opacity-100 cursor-default transition-opacity">View</span>
                     <span className="hidden md:block opacity-80 hover:opacity-100 cursor-default transition-opacity">Window</span>
                     <span className="hidden md:block opacity-80 hover:opacity-100 cursor-default transition-opacity">Help</span>
                 </div>
-                <div className="flex items-center gap-4">
-                    <span className="opacity-80">🔋 92%</span>
-                    <span className="opacity-80">📶</span>
-                    <span className="opacity-80">🔍</span>
-                    <span className="font-semibold">Tue Nov 18 10:03 AM</span>
+                <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+                    <span className="hidden sm:inline opacity-80">🔋 92%</span>
+                    <span className="hidden sm:inline opacity-80">📶</span>
+                    <span className="hidden md:inline opacity-80">🔍</span>
+                    <span className="font-semibold whitespace-nowrap">Tue Nov 18 10:03 AM</span>
                 </div>
             </div>
 
             {/* Desktop Icons */}
-            <div className="absolute inset-0 pt-20 p-6 grid grid-cols-1 w-fit gap-6 z-20">
+            <div className="absolute inset-0 pt-16 sm:pt-20 p-3 sm:p-6 flex flex-col gap-3 sm:gap-6 z-20 items-start">
                 <DesktopIcon
                     label="Chronicles"
-                    icon={<div className="w-16 h-16 bg-blue-500/80 rounded-xl border border-white/20 shadow-xl flex items-center justify-center text-white text-2xl">📁</div>}
+                    icon={<div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/80 rounded-xl border border-white/20 shadow-xl flex items-center justify-center text-white text-xl sm:text-2xl">📁</div>}
                     onClick={() => {
-                        // We can't use a simple store call here easily without a window, 
-                        // so we'll trigger the first chronicle as a default 'folder open' action
                         useChronicleStore.getState().setActiveChronicle('blinkit');
                     }}
                 />
                 <DesktopIcon
                     label="Terminal"
-                    icon={<div className="w-16 h-16 bg-zinc-900 rounded-2xl border border-white/20 flex items-center justify-center text-green-400 font-mono text-lg shadow-2xl"> {'>_'} </div>}
+                    icon={<div className="w-12 h-12 sm:w-16 sm:h-16 bg-zinc-900 rounded-2xl border border-white/20 flex items-center justify-center text-green-400 font-mono text-base sm:text-lg shadow-2xl"> {'>_'} </div>}
                     onClick={() => {
                         const { openTerminal } = useTerminalStore.getState();
                         openTerminal();
@@ -78,10 +76,10 @@ export function MacOSDesktop() {
                 />
                 <DesktopIcon
                     label="Resume"
-                    icon={<div className="w-16 h-20 bg-white rounded-lg border border-slate-300 shadow-xl flex flex-col items-center justify-center overflow-hidden">
-                        <div className="w-full h-4 bg-slate-200 mb-2" />
-                        <div className="w-3/4 h-3 bg-slate-100 mb-2" />
-                        <div className="w-1/2 h-3 bg-slate-100" />
+                    icon={<div className="w-12 h-14 sm:w-16 sm:h-20 bg-white rounded-lg border border-slate-300 shadow-xl flex flex-col items-center justify-center overflow-hidden">
+                        <div className="w-full h-3 sm:h-4 bg-slate-200 mb-1.5 sm:mb-2" />
+                        <div className="w-3/4 h-2 sm:h-3 bg-slate-100 mb-1.5 sm:mb-2" />
+                        <div className="w-1/2 h-2 sm:h-3 bg-slate-100" />
                     </div>}
                     onClick={() => {
                         const { openResume } = useUiStore.getState();
@@ -91,25 +89,25 @@ export function MacOSDesktop() {
             </div>
 
             {/* Center Hero Text */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none">
-                <p className="text-white/80 text-lg md:text-xl font-medium mb-4 tracking-wide animate-in fade-in slide-in-from-bottom-4 duration-1000">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none px-4">
+                <p className="text-white/80 text-sm sm:text-base md:text-xl font-medium mb-3 sm:mb-4 tracking-wide animate-in fade-in slide-in-from-bottom-4 duration-1000 max-w-[90vw]">
                     Hey, I'm Saurin! welcome to my
                 </p>
-                <h1 className="text-white text-[clamp(4rem,15vw,12rem)] font-bold tracking-tighter leading-none animate-in fade-in zoom-in duration-1000">
+                <h1 className="text-white text-[clamp(3rem,15vw,12rem)] font-bold tracking-tighter leading-none animate-in fade-in zoom-in duration-1000">
                     portfolio.
                 </h1>
             </div>
 
             {/* Bottom Dock */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 h-20 px-4 bg-white/10 backdrop-blur-3xl rounded-[2rem] border border-white/20 flex items-center gap-4 z-50 shadow-2xl transition-all duration-300 hover:scale-105">
-                <DockIcon icon={<div className="w-full h-full bg-zinc-900 rounded-2xl border border-white/10 flex items-center justify-center text-green-400 font-mono text-lg shadow-lg"> {'>_'} </div>} label="Terminal" onClick={() => useTerminalStore.getState().openTerminal()} />
-                <DockIcon icon={<div className="w-full h-full bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col p-2 gap-2">
-                    <div className="h-2 w-full bg-slate-200 rounded-full" />
-                    <div className="h-2 w-2/3 bg-slate-200 rounded-full" />
+            <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 h-14 sm:h-16 md:h-20 px-2.5 sm:px-3 md:px-4 bg-white/10 backdrop-blur-3xl rounded-2xl sm:rounded-[2rem] border border-white/20 flex items-center gap-2 sm:gap-3 md:gap-4 z-50 shadow-2xl transition-all duration-300 hover:scale-105 max-w-[92vw] overflow-x-auto">
+                <DockIcon icon={<div className="w-full h-full bg-zinc-900 rounded-xl sm:rounded-2xl border border-white/10 flex items-center justify-center text-green-400 font-mono text-sm sm:text-base md:text-lg shadow-lg"> {'>_'} </div>} label="Terminal" onClick={() => useTerminalStore.getState().openTerminal()} />
+                <DockIcon icon={<div className="w-full h-full bg-white rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm flex flex-col p-1.5 sm:p-2 gap-1.5 sm:gap-2">
+                    <div className="h-1.5 sm:h-2 w-full bg-slate-200 rounded-full" />
+                    <div className="h-1.5 sm:h-2 w-2/3 bg-slate-200 rounded-full" />
                 </div>} label="Resume" onClick={() => useUiStore.getState().openResume()} />
-                <DockIcon icon={<div className="w-full h-full bg-blue-600 rounded-2xl shadow-inner flex items-center justify-center text-white text-xl">🌐</div>} label="Browser" onClick={() => alert("Browser not implemented")} />
-                <div className="w-px h-12 bg-white/20 mx-1" />
-                <DockIcon icon={<div className="w-full h-full bg-zinc-400/50 rounded-2xl flex items-center justify-center text-zinc-700 text-xl">🗑️</div>} label="Trash" onClick={() => alert("Trash is empty")} />
+                <DockIcon icon={<div className="w-full h-full bg-blue-600 rounded-xl sm:rounded-2xl shadow-inner flex items-center justify-center text-white text-base sm:text-lg md:text-xl">🌐</div>} label="Browser" onClick={() => alert("Browser not implemented")} />
+                <div className="w-px h-8 sm:h-10 md:h-12 bg-white/20 mx-0.5 sm:mx-1 shrink-0" />
+                <DockIcon icon={<div className="w-full h-full bg-zinc-400/50 rounded-xl sm:rounded-2xl flex items-center justify-center text-zinc-700 text-base sm:text-lg md:text-xl">🗑️</div>} label="Trash" onClick={() => alert("Trash is empty")} />
             </div>
         </div>
     );
@@ -124,10 +122,10 @@ function DesktopIcon({ label, icon, onClick }: { label: string, icon: React.Reac
                 e.stopPropagation();
                 onClick();
             }}
-            className="flex flex-col items-center justify-center w-20 h-20 rounded-lg hover:bg-white/10 transition-all duration-200 group cursor-pointer"
+            className="flex flex-col items-center justify-center w-16 sm:w-20 h-16 sm:h-20 rounded-lg hover:bg-white/10 active:bg-white/20 transition-all duration-200 group cursor-pointer touch-manipulation"
         >
-            <div className="mb-1 group-hover:scale-110 transition-transform duration-200">{icon}</div>
-            <span className="text-white text-[11px] text-center leading-tight px-1 drop-shadow-md font-medium">{label}</span>
+            <div className="mb-1 group-hover:scale-110 group-active:scale-95 transition-transform duration-200">{icon}</div>
+            <span className="text-white text-[10px] sm:text-[11px] text-center leading-tight px-1 drop-shadow-md font-medium">{label}</span>
         </button>
     );
 }
@@ -136,9 +134,9 @@ function DockIcon({ icon, label, onClick }: { icon: React.ReactNode, label: stri
     return (
         <button
             onClick={onClick}
-            className="w-14 h-14 rounded-2xl transition-all duration-200 flex items-center justify-center relative group hover:-translate-y-3"
+            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl transition-all duration-200 flex items-center justify-center relative group hover:-translate-y-2 sm:hover:-translate-y-3 active:translate-y-0 shrink-0 touch-manipulation"
         >
-            <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/60 backdrop-blur-md text-white text-[11px] rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
+            <span className="absolute -top-10 sm:-top-12 left-1/2 -translate-x-1/2 px-2.5 sm:px-3 py-1 bg-black/60 backdrop-blur-md text-white text-[10px] sm:text-[11px] rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
                 {label}
             </span>
             {icon}

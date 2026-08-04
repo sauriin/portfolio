@@ -1,65 +1,247 @@
+'use client';
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaInstagram,
+} from "react-icons/fa";
+
+import Navbar from "@/components/Navbar";
+import Services from "@/components/Services";
+import Projects from "@/components/Projects";
+import Certifications from "@/components/Certifications";
+import Education from "@/components/Education";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-black text-white overflow-x-hidden">
+      <Navbar />
+      <section className="mx-auto max-w-7xl px-6 lg:px-10 pt-28 pb-16">
+        {/* HERO TITLE */}
+        <motion.div
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mb-16"
+        >
+          <h1
+            className="
+            text-center
+            text-6xl
+            sm:text-7xl
+            md:text-8xl
+            lg:text-[100px]
+            xl:text-[120px]
+            font-black
+            uppercase
+            tracking-tight
+            leading-none
+            text-transparent
+            [-webkit-text-stroke:2px_white]
+            "
+          >
+            Saurin Parmar
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        </motion.div>
+
+        {/* HERO CONTENT */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14 items-center">
+
+          {/* LEFT */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: .2,
+            }}
+            className="space-y-9"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+            {/* BIO */}
+            <div>
+              <p className="mb-5 text-xs uppercase tracking-[5px] text-zinc-500">
+                Biography
+              </p>
+              <p className="text-base leading-7 text-zinc-300">
+                I'm an MCA graduate specializing in
+                <span className="font-semibold text-white">
+                  {" "}Full Stack Development
+                </span>
+                <span className="text-violet-400">
+                  {" "}and Data Analytics
+                </span>.
+                I enjoy building scalable web applications,
+                creating interactive dashboards and solving
+                real-world business problems through modern
+                technologies.
+              </p>
+            </div>
+
+            {/* SKILLS */}
+            <div>
+              <p className="mb-5 text-xs uppercase tracking-[5px] text-zinc-500">
+                Skills
+              </p>
+              <p className="text-lg leading-8 text-zinc-300">
+                React • Next.js • TypeScript
+                <br />
+                Node.js • Prisma • PostgreSQL
+                <br />
+                SQL • Python • Power BI
+                <br />
+                Tailwind CSS • Git • REST APIs
+              </p>
+            </div>
+
+            {/* CONNECT */}
+            <div>
+              <p className="mb-6 text-xs uppercase tracking-[5px] text-zinc-500">
+                Connect
+              </p>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/sauriin"
+                  target="_blank"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-800 transition-all duration-300 hover:-translate-y-1 hover:bg-violet-600"
+                >
+                  <FaGithub size={18} />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/saurin-parmar-3a389223a/"
+                  target="_blank"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-800 transition-all duration-300 hover:-translate-y-1 hover:bg-violet-600"
+                >
+                  <FaLinkedinIn size={18} />
+                </a>
+
+                <a
+                  href="https://instagram.com/__.saurin.__"
+                  target="_blank"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-800 transition-all duration-300 hover:-translate-y-1 hover:bg-violet-600"
+                >
+                  <FaInstagram size={18} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CENTER */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.4,
+            }}
+            className="flex flex-col items-center"
           >
-            Documentation
-          </a>
+            <div
+              className="
+              relative
+              h-82.5
+              w-82.5
+              lg:h-80
+              lg:w-80
+              overflow-hidden
+              rounded-full
+              border
+              border-violet-500/30
+              shadow-[0_0_35px_rgba(139,92,246,.18)]
+            "
+            >
+
+              <Image
+                src="/Saurinn.jpg"
+                alt="Saurin Parmar"
+                fill
+                priority
+                className="
+                object-cover
+                object-[40%_35%]
+                scale-[1.28]
+                transition-all
+                duration-700
+                hover:scale-[1.34]
+                "
+              />
+            </div>
+          </motion.div>
+
+          {/* RIGHT */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.4,
+            }}
+            className="space-y-9 text-center lg:text-right"
+          >
+
+            <div>
+
+              <p className="uppercase tracking-[5px] text-xs text-zinc-500">
+                Featured Projects
+              </p>
+
+              <h2 className="mt-3 text-5xl font-bold">
+                03+
+              </h2>
+
+            </div>
+
+            <div>
+
+              <p className="uppercase tracking-[5px] text-xs text-zinc-500">
+                Certifications
+              </p>
+
+              <h2 className="mt-3 text-6xl font-bold">
+                06
+              </h2>
+
+            </div>
+
+            <div>
+
+              <p className="uppercase tracking-[5px] text-xs text-zinc-500">
+                CGPA
+              </p>
+
+              <h2 className="mt-3 text-6xl font-bold">
+                8.44
+              </h2>
+
+            </div>
+
+            <div>
+
+              <p className="uppercase tracking-[5px] text-xs text-zi  nc-500">
+                Location
+              </p>
+
+              <h2 className="mt-3 text-xl font-semibold">
+                Vadodara, India
+              </h2>
+
+            </div>
+
+          </motion.div>
+
         </div>
-      </main>
-    </div>
+
+      </section>
+
+      <Services />
+      <Projects />
+      <Education />
+      <Certifications />
+      <Contact />
+    </main>
   );
 }

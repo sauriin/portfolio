@@ -82,14 +82,14 @@ export default function Certifications() {
 
     const scrollLeft = () => {
         sliderRef.current?.scrollBy({
-            left: -340,
+            left: -350,
             behavior: "smooth",
         });
     };
 
     const scrollRight = () => {
         sliderRef.current?.scrollBy({
-            left: 340,
+            left: 350,
             behavior: "smooth",
         });
     };
@@ -97,41 +97,38 @@ export default function Certifications() {
     return (
         <section
             id="certifications"
-            className="bg-black py-20"
+            className="bg-black py-20 sm:py-24 lg:py-28"
         >
-            <div className="mx-auto max-w-[1700px] px-10">
-
+            <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="rounded-[32px] bg-zinc-900 px-14 py-14"
+                    className="rounded-3xl bg-zinc-900 px-6 py-8 sm:px-10 sm:py-10 lg:px-14 lg:py-14"
                 >
-
+                    {/* Heading */}
                     <div className="mx-auto max-w-3xl text-center">
-
                         <p className="mb-4 text-xs uppercase tracking-[4px] text-zinc-500">
                             Certifications
                         </p>
 
-                        <h2 className="text-5xl lg:text-6xl font-bold">
+                        <h2 className="text-4xl font-bold sm:text-5xl lg:text-6xl">
                             Professional{" "}
                             <span className="text-violet-500">
                                 Certifications
                             </span>
                         </h2>
 
-                        <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-400">
-                            Industry-recognized certifications showcasing
-                            my expertise in Full Stack Development,
-                            Data Analytics, Artificial Intelligence,
-                            Cloud Computing and Project Management.
+                        <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-zinc-400">
+                            Industry-recognized certifications showcasing my
+                            expertise in Full Stack Development, Data Analytics,
+                            Artificial Intelligence, Cloud Computing, and
+                            Project Management.
                         </p>
-
                     </div>
 
-                    <div className="mt-8 flex justify-center gap-5">
-
+                    {/* Navigation */}
+                    <div className="mt-10 flex justify-center gap-4">
                         <button
                             onClick={scrollLeft}
                             className="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-800 transition hover:bg-violet-600"
@@ -141,31 +138,31 @@ export default function Certifications() {
 
                         <button
                             onClick={scrollRight}
-                            className="flex h-14 w-14 items-center justify-center rounded-full bg-zinc-800 transition hover:bg-violet-600"
+                            className="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-800 transition hover:bg-violet-600"
                         >
                             <FaChevronRight />
                         </button>
-
                     </div>
 
+                    {/* Slider */}
                     <div
                         ref={sliderRef}
                         className="
-                                mt-14
-                                flex
-                                gap-8
-                                overflow-x-auto
-                                scroll-smooth
-                                scrollbar-hide
-                                "
+                            mt-12
+                            flex
+                            gap-6
+                            overflow-x-auto
+                            scroll-smooth
+                            snap-x
+                            snap-mandatory
+                            pb-2
+                            scrollbar-hide
+                        "
                     >
-
                         {certifications.map((item, index) => {
-
                             const Icon = item.icon;
 
                             return (
-
                                 <motion.a
                                     key={item.title}
                                     href={item.credential}
@@ -175,62 +172,77 @@ export default function Certifications() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{
-                                        duration: .5,
-                                        delay: index * .08,
+                                        duration: 0.5,
+                                        delay: index * 0.08,
                                     }}
-                                    whileHover={{
-                                        y: -8,
-                                    }}
+                                    whileHover={{ y: -8 }}
                                     className="
-                                            group
-                                            min-w-[320px]
-                                            max-w-[320px]
-                                            shrink-0
-                                        "
+                                        group
+                                        min-w-[280px]
+                                        max-w-[280px]
+                                        shrink-0
+                                        snap-center
+                                        sm:min-w-[300px]
+                                        sm:max-w-[300px]
+                                        lg:min-w-[320px]
+                                        lg:max-w-[320px]
+                                    "
                                 >
-
                                     <div
                                         className="
-                                                flex
-                                                aspect-[16/10]
-                                                items-center
-                                                justify-center
-                                                rounded-2xl
-                                                bg-zinc-950
-                                                transition-all
-                                                duration-500
-                                                group-hover:bg-zinc-800
-                                                "
+                                            flex
+                                            aspect-[16/10]
+                                            items-center
+                                            justify-center
+                                            rounded-2xl
+                                            bg-zinc-950
+                                            transition-all
+                                            duration-500
+                                            group-hover:bg-zinc-800
+                                        "
                                     >
-
                                         <Icon
                                             className={`
-                        h-20
-                        w-20
-                        ${item.color}
-                        transition-all
-                        duration-500
-                        group-hover:scale-110
-                      `}
+                                                h-16
+                                                w-16
+                                                sm:h-20
+                                                sm:w-20
+                                                ${item.color}
+                                                transition-all
+                                                duration-500
+                                                group-hover:scale-110
+                                            `}
                                         />
-
                                     </div>
 
-                                    <p className="mt-8 text-xs uppercase tracking-[4px] text-zinc-500">
+                                    <p className="mt-6 text-xs uppercase tracking-[4px] text-zinc-500">
                                         {item.company}
                                     </p>
 
-                                    <h3 className="mt-3 text-2xl font-bold leading-tight transition group-hover:text-violet-400">
+                                    <h3 className="mt-3 text-xl font-bold leading-tight transition group-hover:text-violet-400 sm:text-2xl">
                                         {item.title}
                                     </h3>
-                                    <div className="mt-6 flex items-center justify-between">
-                                        <span className="text-zinc-500">
+
+                                    <div className="mt-5 flex items-center justify-between">
+                                        <span className="text-sm text-zinc-500">
                                             Issued • {item.year}
                                         </span>
 
-                                        <span className="flex items-center gap-2 font-medium text-violet-400 transition group-hover:translate-x-2">
-                                            View Credential
-                                            <FaArrowRight />
+                                        <span
+                                            className="
+                                                flex
+                                                items-center
+                                                gap-2
+                                                text-sm
+                                                font-medium
+                                                text-violet-400
+                                                transition-all
+                                                duration-300
+                                                group-hover:translate-x-2
+                                            "
+                                        >
+                                            View
+                                            <FaArrowRight className="text-xs" />
                                         </span>
                                     </div>
                                 </motion.a>

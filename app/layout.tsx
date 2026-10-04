@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Portfolio of Saurin Parmar showcasing Full Stack Development, Data Analytics, Artificial Intelligence, Cloud Computing, and modern web applications built using Next.js, React, TypeScript, SQL, Python, and Power BI.",
+    "Portfolio of Saurin Parmar — Data Operation Analyst at NIQ (NielsenIQ) — showcasing Full Stack Development, Data Analytics, Artificial Intelligence, Cloud Computing, and modern web applications built using Next.js, React, TypeScript, SQL, Python, and Power BI.",
 
   keywords: [
     "Saurin Parmar",
@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     "Full Stack Developer",
     "Frontend Developer",
     "Data Analyst",
+    "Data Operation Analyst",
+    "NIQ",
+    "NielsenIQ",
     "Next.js",
     "React",
     "TypeScript",

@@ -43,7 +43,7 @@ export default function Navbar() {
                             sm:items-center
                         "
                     >
-                        LET'S TALK
+                        LET&apos;S TALK
                     </a>
 
                     <a

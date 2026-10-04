@@ -14,6 +14,7 @@ import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import Education from "@/components/Education";
+import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -80,7 +81,7 @@ export default function Home() {
               </p>
 
               <p className="text-base sm:text-lg leading-7 sm:leading-8 text-zinc-300">
-                I'm an MCA graduate specializing in
+                I&apos;m an MCA graduate specializing in
                 <span className="font-semibold text-white">
                   {" "}Full Stack Development
                 </span>
@@ -88,6 +89,15 @@ export default function Home() {
                 <span className="text-violet-400">
                   {" "}and Data Analytics
                 </span>.
+
+                Currently working as a
+                <span className="font-semibold text-white">
+                  {" "}Data Operation Analyst
+                </span>
+
+                <span className="text-violet-400">
+                  {" "}at NIQ (NielsenIQ)
+                </span>, working with global consumer and retail data.
 
                 I enjoy building scalable web applications,
                 creating interactive dashboards and solving
@@ -282,6 +292,7 @@ export default function Home() {
       </section>
 
       <Services />
+      <Experience />
       <Projects />
       <Education />
       <Certifications />

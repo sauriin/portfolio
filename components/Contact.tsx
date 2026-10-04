@@ -84,7 +84,7 @@ export default function Contact() {
                         </p>
 
                         <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-                            Let's <span className="text-violet-500">Talk</span>
+                            Let&apos;s <span className="text-violet-500">Talk</span>
                         </h2>
 
                         <p className="mt-5 max-w-2xl text-sm leading-7 text-zinc-400 sm:text-base">
